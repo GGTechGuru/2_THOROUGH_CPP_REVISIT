@@ -16,10 +16,14 @@
 
 #include <unistd.h>
 
+
+#include "util_lib_1.h"
+
+
 using namespace std;
 
-extern int		randint(int incl_low, int incl_high);
-extern void *		rand_bytes(unsigned int count, unsigned short min_val, unsigned short max_val, char * opt_buf);
+// extern int		randint(int incl_low, int incl_high);
+// extern void *		rand_bytes(unsigned int count, unsigned short min_val, unsigned short max_val, char * opt_buf);
 
 class WRITE_PLUS_A
 {
@@ -70,7 +74,8 @@ class WRITE_PLUS_A
                 }
                 else
                 {
-                    *( write_buf_ptr + 1 ) = '\n'; // Line break for easier check
+                    *( write_buf_ptr + rand_count ) = '\n'; // Line break for easier check
+                    *( write_buf_ptr + rand_count +1 ) = '\0'; // Line break for easier check
                 }
 
                 errno = 0;
